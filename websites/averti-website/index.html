@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Averti Labs - Cyber Security Solutions</title>
+    <meta name="description" content="Proactive security solutions. Averti blocks threats in real-time.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #d32f2f; 
+            --primary-hover: #b71c1c;
+            --text-main: #111827;     
+            --text-muted: #4b5563;    
+            --border-color: #e5e7eb;  
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: #f1f5f9; 
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; 
+        }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto 0 auto;
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-text span { color: var(--primary); }
+
+        .logo-box {
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+        /* BOUTON LANGUE */
+        .lang-switch {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .lang-switch:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* SVG ICONS */
+        .icon-svg {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* --- CONTACT BUTTON (STYLE CORRIGÉ : ROUGE SOLIDE) --- */
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            
+            /* Style identique au btn-cta */
+            background-color: var(--primary);
+            color: white !important;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 10px 25px rgba(211, 47, 47, 0.25);
+            cursor: pointer;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(211, 47, 47, 0.35);
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tagline {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0284c7;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(4px);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 10px 25px rgba(211, 47, 47, 0.25);
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(211, 47, 47, 0.35);
+        }
+
+        /* FEATURES */
+        .glass-section {
+            background: rgba(255, 255, 255, 0.75); 
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255,255,255,0.8);
+            border-bottom: 1px solid rgba(255,255,255,0.8);
+            padding: 100px 20px;
+            position: relative;
+            z-index: 2;
+            margin-top: 40px;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; color: var(--text-main); }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-icon-box {
+            width: 50px;
+            height: 50px;
+            background: #fef2f2;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .card-icon-box svg { width: 28px; height: 28px; }
+
+        .card h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--text-main); }
+        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+
+        /* B2B */
+        .b2b {
+            text-align: center;
+            margin: 60px 0;
+            padding: 60px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .b2b::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 5px; height: 100%;
+            background: var(--primary);
+        }
+
+        /* FOOTER */
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 100;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .hero { padding: 60px 20px; }
+            nav { flex-direction: column; gap: 15px; width: 95%; }
+            .nav-links { flex-direction: column; gap: 15px; }
+            footer { width: 95%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-box"></div>
+            <span class="logo-text">Aver<span>ti</span> Labs</span>
+        </a>
+        <div class="nav-links">
+            <a href="#features" data-i18n="nav_tech">Technologie</a>
+            <a href="#education" data-i18n="nav_school">Écoles & Pros</a>
+            <button id="langToggle" class="lang-switch">EN / FR</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <span class="tagline" data-i18n="tagline">Nouveau : Averti pour Chrome</span>
+        <h1 data-i18n="hero_title">Protégé avant la menace</h1>
+        <p data-i18n="hero_desc">Averti bloque les menaces avant que vous ne cliquiez. Protection temps réel, alertes intelligentes, zéro compromis sur la vie privée.</p>
+        
+        <a href="https://chromewebstore.google.com/detail/afpjnangkkpfkeoiaimgfcfedpcdcjdd?utm_source=item-share-cb" class="btn-cta" target="_blank" data-i18n="cta_btn">
+            Ajouter à Chrome - Gratuit
+        </a>
+        <p style="margin-top: 20px; font-size: 0.85rem; color: #6b7280;" data-i18n="privacy_note">🔒 Aucune donnée collectée. Open Source Intelligence.</p>
+    </section>
+
+    <section id="features" class="glass-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="eco_title">L'Écosystème Averti</h2>
+                <p data-i18n="eco_desc">Notre première solution pour sécuriser le web moderne.</p>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon-box">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                    </div>
+                    <h3 data-i18n="feat1_title">Blocage Temps Réel</h3>
+                    <p data-i18n="feat1_desc">Une base de données de 4000+ menaces mise à jour automatiquement chaque jour. Phishing, Malware, Arnaques : bloqués instantanément.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon-box">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3 data-i18n="feat2_title">Mode École & Famille</h3>
+                    <p data-i18n="feat2_desc">Activez le filtrage parental en un clic. Bloquez les contenus explicites et les sites de jeux d'argent pour protéger les plus jeunes.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon-box">
+                        <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </div>
+                    <h3 data-i18n="feat3_title">Alerte Prédictive</h3>
+                    <p data-i18n="feat3_desc">Notre innovation : Averti détecte les dangers directement dans votre barre de recherche Google avant même que vous ne visitiez le site.</p>
+                </div>
+            </div>
+
+            <div id="education" class="b2b">
+                <h2 data-i18n="b2b_title">Vous gérez une école ou une entreprise ?</h2>
+                <p style="margin: 20px auto; max-width: 600px; color: #4b5563;" data-i18n="b2b_desc">
+                    Déployez Averti sur 10, 100 ou 1000 postes. Gérez votre propre liste noire via un simple fichier CSV synchronisé.
+                </p>
+                <a onclick="copyEmail(this)" class="contact-btn">
+                    <span data-i18n="contact_btn">Contact : qetudes@gmail.com</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Averti Labs. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <script>
+        // 1. PARTICULES (Gris Tech)
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#94a3b8" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": { 
+                    "enable": true, 
+                    "distance": 150, 
+                    "color": "#cbd5e1", 
+                    "opacity": 0.4, 
+                    "width": 1 
+                },
+                "move": { "enable": true, "speed": 1.5, "direction": "none", "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" } },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } } }
+            },
+            "retina_detect": true
+        });
+
+        // 2. DICTIONNAIRE DE LANGUES
+        const translations = {
+            fr: {
+                nav_tech: "Technologie",
+                nav_school: "Écoles & Pros",
+                tagline: "Nouveau : Averti pour Chrome",
+                hero_title: "Protégé avant la menace",
+                hero_desc: "Averti bloque les menaces avant que vous ne cliquiez. Protection temps réel, alertes intelligentes, zéro compromis sur la vie privée.",
+                cta_btn: "Ajouter à Chrome - Gratuit",
+                privacy_note: "🔒 Aucune donnée collectée. Open Source Intelligence.",
+                eco_title: "L'Écosystème Averti",
+                eco_desc: "Notre première solution pour sécuriser le web moderne.",
+                feat1_title: "Blocage Temps Réel",
+                feat1_desc: "Une base de données de 4000+ menaces mise à jour automatiquement chaque jour. Phishing, Malware, Arnaques : bloqués instantanément.",
+                feat2_title: "Mode École & Famille",
+                feat2_desc: "Activez le filtrage parental en un clic. Bloquez les contenus explicites et les sites de jeux d'argent pour protéger les plus jeunes.",
+                feat3_title: "Alerte Prédictive",
+                feat3_desc: "Notre innovation : Averti détecte les dangers directement dans votre barre de recherche Google avant même que vous ne visitiez le site.",
+                b2b_title: "Vous gérez une école ou une entreprise ?",
+                b2b_desc: "Déployez Averti sur 10, 100 ou 1000 postes. Gérez votre propre liste noire via un simple fichier CSV synchronisé.",
+                contact_btn: "Contact : qetudes@gmail.com"
+            },
+            en: {
+                nav_tech: "Technology",
+                nav_school: "Schools & Pros",
+                tagline: "New: Averti for Chrome",
+                hero_title: "Protected before the threat",
+                hero_desc: "Averti blocks threats before you even click. Real-time protection, smart alerts, zero privacy compromise.",
+                cta_btn: "Add to Chrome - Free",
+                privacy_note: "🔒 No data collected. Open Source Intelligence.",
+                eco_title: "The Averti Ecosystem",
+                eco_desc: "Our premier solution for securing the modern web.",
+                feat1_title: "Real-Time Blocking",
+                feat1_desc: "A database of 4,000+ threats updated automatically every day. Phishing, Malware, Scams: blocked instantly.",
+                feat2_title: "School & Family Mode",
+                feat2_desc: "Activate parental filtering in one click. Block explicit content and gambling sites to protect younger users.",
+                feat3_title: "Predictive Alert",
+                feat3_desc: "Our innovation: Averti detects dangers directly in your Google search bar before you even visit the site.",
+                b2b_title: "Managing a school or business?",
+                b2b_desc: "Deploy Averti on 10, 100 or 1000 devices. Manage your own blocklist via a simple synchronized CSV file.",
+                contact_btn: "Contact: qetudes@gmail.com"
+            }
+        };
+
+        // 3. LOGIQUE DE LANGUE
+        function setLanguage(lang) {
+            const t = translations[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) el.innerHTML = t[key];
+            });
+            document.title = lang === 'fr' ? "Averti Labs - Solutions de Cybersécurité" : "Averti Labs - Cyber Security Solutions";
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const userLang = navigator.language || navigator.userLanguage; 
+            const currentLang = userLang.startsWith('fr') ? 'fr' : 'en';
+            setLanguage(currentLang);
+        });
+
+        document.getElementById('langToggle').addEventListener('click', () => {
+            const currentTitle = document.querySelector('h1').innerText;
+            const newLang = currentTitle.includes("Protégé") ? 'en' : 'fr';
+            setLanguage(newLang);
+        });
+
+        // 4. FONCTION COPIE EMAIL
+        function copyEmail(element) {
+            const email = "qetudes@gmail.com";
+            const customIcon = `
+            <svg class="icon-svg" style="width:20px; height:20px; margin-right:5px;" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" style="stroke:currentColor; fill:none;"></rect>
+                <path d="M9 12l2 2 4-4" style="stroke:currentColor;"></path>
+            </svg>
+            `;
+
+            navigator.clipboard.writeText(email).then(function() {
+                const originalContent = element.innerHTML;
+                element.innerHTML = `${customIcon} <span style="font-weight:bold;">Email copié !</span>`;
+                // Couleur adaptée pour être lisible sur fond rouge (contact btn) ou noir (nav)
+                // Ici, on force le blanc si le fond est rouge
+                if (element.classList.contains('contact-btn')) {
+                    element.style.backgroundColor = "#b71c1c"; // Rouge plus foncé pour feedback
+                    element.style.color = "white";
+                } else {
+                    element.style.color = "#d32f2f"; // Texte rouge pour le lien Nav
+                }
+                
+                setTimeout(() => {
+                    element.innerHTML = originalContent;
+                    element.style.backgroundColor = ""; 
+                    element.style.color = "";
+                }, 2000);
+            }, function(err) {
+                console.error('Erreur :', err);
+            });
+        }
+    </script>
+
+</body>
+</html>

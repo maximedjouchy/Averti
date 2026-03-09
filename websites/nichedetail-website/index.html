@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niche Detail - Auto Detailing Mastery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: rgba(30, 30, 30, 0.6);
+            --accent: #ef4444;
+            --text-main: #ffffff;
+            --text-muted: #a3a3a3;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        nav { 
+            padding: 20px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid var(--border);
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo { 
+            font-weight: 900; 
+            font-size: 1.4rem; 
+            text-decoration: none; 
+            color: white; 
+            letter-spacing: -1px; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo span { color: var(--accent); }
+        
+        .logo-square {
+            width: 20px; 
+            height: 20px; 
+            background: var(--accent); 
+            transform: skew(-10deg);
+        }
+
+        /* Langue Switcher (Petit bouton discret) */
+        .lang-switch {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        .lang-switch:hover { color: white; border-color: white; }
+
+        .hero { 
+            text-align: center; 
+            padding: 120px 20px; 
+            position: relative;
+        }
+        h1 { 
+            font-size: 4rem; 
+            line-height: 1.1; 
+            margin-bottom: 25px; 
+            font-weight: 900;
+        }
+        h1 span { 
+            color: transparent;
+            -webkit-text-stroke: 1px var(--accent);
+        }
+        .hero p { 
+            color: var(--text-muted); 
+            max-width: 600px; 
+            margin: 0 auto 40px auto; 
+            font-size: 1.2rem; 
+            line-height: 1.6;
+        }
+
+        .download-btn {
+            background: var(--accent); 
+            color: white; 
+            padding: 16px 40px; 
+            border-radius: 4px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            display: inline-block; 
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+        }
+        .download-btn:hover { 
+            background: #dc2626; 
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(239, 68, 68, 0.5);
+        }
+
+        .app-preview {
+            display: flex; 
+            gap: 30px; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            margin-top: 60px;
+            padding: 0 20px;
+        }
+        .feature-card {
+            background: var(--bg-card); 
+            backdrop-filter: blur(10px);
+            padding: 40px 30px; 
+            border-radius: 16px; 
+            border: 1px solid var(--border); 
+            width: 350px; 
+            text-align: left;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        .icon-svg {
+            width: 28px;
+            height: 28px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .feature-card h3 { font-size: 1.3rem; margin-bottom: 10px; color: white; }
+        .feature-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+
+        footer { 
+            text-align: center; 
+            padding: 60px 20px; 
+            color: #555; 
+            font-size: 0.8rem; 
+            border-top: 1px solid var(--border); 
+            margin-top: 100px; 
+            background: #050505;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            .hero { padding: 80px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-square"></div>
+            NICHE<span>DETAIL</span>
+        </a>
+        <button id="langToggle" class="lang-switch">EN / FR</button>
+    </nav>
+
+    <section class="hero">
+        <h1 data-i18n="hero_title">Perfection <br><span>in the details.</span></h1>
+        <p data-i18n="hero_subtitle">The ultimate tool for detailing enthusiasts and pros. Dilution calculators, expert procedures, and product management.</p>
+        <a href="#" class="download-btn" data-i18n="cta_btn">Coming Soon on App Store</a>
+    </section>
+
+    <div class="app-preview">
+        <div class="feature-card">
+            <div class="icon-box">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M10 2v2A6 6 0 0 1 2 12v6a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4v-6c0-3.31-2.69-6-6-6V2h-4zm2 2v2"></path><path d="M9 13h6"></path></svg>
+            </div>
+            <h3 data-i18n="feat1_title">Dilution Calculator</h3>
+            <p data-i18n="feat1_desc">Stop wasting products. Enter your ratio (1:10) and container size, we give you the exact mix.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon-box">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            </div>
+            <h3 data-i18n="feat2_title">Knowledge Base</h3>
+            <p data-i18n="feat2_desc">Step-by-step procedures for interior and exterior. Always know which product (Green Star, Bead Maker...) to use.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon-box">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M23 4v6h-6"></path><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+            </div>
+            <h3 data-i18n="feat3_title">Pro Workflow</h3>
+            <p data-i18n="feat3_desc">Follow the expert method: Wheels > Pre-wash > Contact Wash > Protection. Never skip a step.</p>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 Niche Detail. All rights reserved.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <script>
+        // 1. PARTICULES (Effet Métal/Argent)
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 70, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.3, "random": true },
+                "size": { "value": 2, "random": true },
+                "line_linked": { 
+                    "enable": true, "distance": 150, "color": "#a3a3a3", "opacity": 0.2, "width": 1 
+                },
+                "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "push" } },
+                "modes": { "bubble": { "distance": 200, "size": 4, "duration": 2, "opacity": 0.8 } }
+            },
+            "retina_detect": true
+        });
+
+        // 2. SYSTEME DE TRADUCTION AUTO
+        const translations = {
+            fr: {
+                hero_title: "La perfection <br><span>dans les détails.</span>",
+                hero_subtitle: "L'outil ultime pour les passionnés et professionnels du detailing. Calculs de dilution, procédures expertes et gestion de produits.",
+                cta_btn: "Bientôt sur App Store & Play Store",
+                feat1_title: "Calculateur de Dilution",
+                feat1_desc: "Ne gaspillez plus vos produits. Entrez le ratio (1:10) et la taille du contenant, nous vous donnons le mélange exact.",
+                feat2_title: "Base de Connaissances",
+                feat2_desc: "Procédures étape par étape pour l'intérieur et l'extérieur. Sachez toujours quel produit utiliser.",
+                feat3_title: "Workflow Pro",
+                feat3_desc: "Suivez la méthode des experts : Roues > Prélavage > Lavage Contact > Protection. Ne sautez aucune étape."
+            },
+            en: {
+                hero_title: "Perfection <br><span>in the details.</span>",
+                hero_subtitle: "The ultimate tool for detailing enthusiasts and pros. Dilution calculators, expert procedures, and product management.",
+                cta_btn: "Coming Soon on App Store",
+                feat1_title: "Dilution Calculator",
+                feat1_desc: "Stop wasting products. Enter your ratio (1:10) and container size, we give you the exact mix instantly.",
+                feat2_title: "Knowledge Base",
+                feat2_desc: "Step-by-step procedures for interior and exterior. Always know exactly which product to use and when.",
+                feat3_title: "Pro Workflow",
+                feat3_desc: "Follow the expert method: Wheels > Pre-wash > Contact Wash > Protection. Never skip a crucial step."
+            }
+        };
+
+        // Fonction pour appliquer la langue
+        function setLanguage(lang) {
+            const t = translations[lang];
+            // On met à jour tous les éléments qui ont un attribut data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) el.innerHTML = t[key]; // innerHTML permet de garder les <br> et <span>
+            });
+            // Mettre à jour le titre de la page
+            document.title = lang === 'fr' ? "Niche Detail - Maîtrisez le Detailing" : "Niche Detail - Auto Detailing Mastery";
+        }
+
+        // Détection automatique au chargement
+        document.addEventListener('DOMContentLoaded', () => {
+            const userLang = navigator.language || navigator.userLanguage; 
+            // Si la langue commence par "fr" (fr-FR, fr-CA), on met français, sinon anglais
+            const currentLang = userLang.startsWith('fr') ? 'fr' : 'en';
+            setLanguage(currentLang);
+        });
+
+        // Bouton de bascule manuel
+        document.getElementById('langToggle').addEventListener('click', () => {
+            const h1Text = document.querySelector('h1').innerText;
+            // Si le texte actuel contient "Perfection" (Anglais), on passe en FR, sinon EN
+            const newLang = h1Text.includes("Perfection") ? 'fr' : 'en';
+            setLanguage(newLang);
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+{
+  "manifest_version": 3,
+  "name": "Averti",
+  "version": "1.0.1",
+  "description": "Proactive safety tool. Blocks threats, protects students, and warns in real-time.",
+  "permissions": [
+    "declarativeNetRequest",
+    "storage",
+    "activeTab",
+    "alarms",
+    "tabs"
+  ],
+  "omnibox": {
+    "keyword": "averti"
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Averti Control Center",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.google.com/*",
+        "*://www.google.ca/*",
+        "*://www.google.co.uk/*",
+        "*://www.google.fr/*",
+        "*://www.google.de/*",
+        "*://www.google.es/*",
+        "*://www.google.it/*",
+        "*://www.google.com.br/*",
+        "*://www.google.co.in/*",
+        "*://www.google.com.au/*",
+        "*://www.google.co.jp/*",
+        "*://*.google.com/*",
+        "*://*.google.ca/*",
+        "*://*.google.fr/*",
+        "*://www.bing.com/*",
+        "*://search.yahoo.com/*",
+        "*://duckduckgo.com/*"
+      ],
+      "js": ["translations.js", "content.js"],
+      "css": ["warning.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["warning.html", "warning.js", "translations.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

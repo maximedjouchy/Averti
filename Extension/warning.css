@@ -1,0 +1,26 @@
+.averti-warning-box {
+    position: fixed !important;
+    top: 100px !important;
+    right: 20px !important;
+    z-index: 2147483647 !important;
+    background-color: #ff0000 !important;
+    color: white !important;
+    padding: 15px 25px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5) !important;
+    font-family: 'Segoe UI', sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    border: 2px solid white !important;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.averti-warning-box.show { opacity: 1; }
+
+.averti-domain {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1.1em;
+}

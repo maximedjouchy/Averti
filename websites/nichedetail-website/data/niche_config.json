@@ -1,0 +1,62 @@
+{
+  "app_version": "1.0.0",
+  "welcome_message": "Bienvenue sur Niche Detail Pro",
+  "featured_creators": [
+    {
+      "id": "c1",
+      "name": "Pan The Organizer",
+      "channel_url": "https://www.youtube.com/user/PanTheOrganizer",
+      "image_url": "https://yt3.googleusercontent.com/..."
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "category": "Exterior",
+      "sub_category": "Pre-wash",
+      "name": "Koch Chemie Green Star",
+      "description": "Nettoyant alcalin universel (pH 12.5).",
+      "dilution_ratio": "1:10",
+      "purchase_link": "https://amazon.com/...",
+      "image_url": "https://m.media-amazon.com/images/I/61..."
+    },
+    {
+      "id": "p2",
+      "category": "Exterior",
+      "sub_category": "Wheels",
+      "name": "P&S Brake Buster",
+      "description": "Nettoyant jantes et pneus sans acide.",
+      "dilution_ratio": "1:5",
+      "purchase_link": "https://amazon.com/...",
+      "image_url": "https://..."
+    },
+    {
+      "id": "p3",
+      "category": "Interior",
+      "sub_category": "Carpets",
+      "name": "ZEP Carpet Shampoo",
+      "description": "Shampoing tapis haute performance.",
+      "dilution_ratio": "1:20",
+      "purchase_link": "https://amazon.com/...",
+      "image_url": "https://..."
+    },
+    {
+    "id": "feat-1",
+    "title": "AMMO NYC | Step-by-Step Detailing",
+    "url": "https://www.youtube.com/user/AMMONYCdotcom",
+    "type": "video"
+  },
+  {
+    "id": "feat-2",
+    "title": "Pan The Organizer | Product Reviews",
+    "url": "https://www.youtube.com/channel/UCE0kcuDrpDbFT38Vr2L_lQA",
+    "type": "video"
+  },
+  {
+    "id": "feat-3",
+    "title": "The Detail Geek | Deep Cleans",
+    "url": "https://www.youtube.com/channel/UCAQHQEO4QpI5dXtr3vLoFCg",
+    "type": "video"
+  }
+  ]
+}
